@@ -5,10 +5,12 @@ setlocal EnableExtensions
 cd /d "%~dp0"
 
 set "PY="
-py -3 --version >nul 2>&1 && set "PY=py -3"
-if not defined PY python --version >nul 2>&1 && set "PY=python"
+rem Use a Python that pygame supports (3.9-3.13); prefer the one on PATH.
+for %%V in (python "py -3.13" "py -3.12" "py -3.11" "py -3.10" "py -3.9") do if not defined PY (
+    %%~V -c "import sys; sys.exit(not (3, 9) <= sys.version_info[:2] <= (3, 13))" >nul 2>&1 && set "PY=%%~V"
+)
 if not defined PY (
-    echo Python 3.9 or newer is required to build.
+    echo Python 3.9 to 3.13 is required to build; pygame doesn't support newer versions yet.
     exit /b 1
 )
 

@@ -7,8 +7,10 @@ cd /d "%~dp0"
 if exist ".venv\Scripts\pythonw.exe" goto :deps
 
 set "PY="
-py -3 --version >nul 2>&1 && set "PY=py -3"
-if not defined PY python --version >nul 2>&1 && set "PY=python"
+rem Use a Python that pygame supports (3.9-3.13); prefer the one on PATH.
+for %%V in (python "py -3.13" "py -3.12" "py -3.11" "py -3.10" "py -3.9") do if not defined PY (
+    %%~V -c "import sys; sys.exit(not (3, 9) <= sys.version_info[:2] <= (3, 13))" >nul 2>&1 && set "PY=%%~V"
+)
 if not defined PY goto :nopython
 
 echo Setting up Sidestick (first run only)...
@@ -26,7 +28,7 @@ start "" ".venv\Scripts\pythonw.exe" Sidestick.pyw %*
 exit /b 0
 
 :nopython
-echo Python 3.9 or newer was not found.
+echo Python 3.9 to 3.13 was not found (pygame doesn't support newer versions yet).
 echo.
 echo  - Easiest: download Sidestick-windows.zip from the GitHub
 echo    Releases page. It needs no Python.
