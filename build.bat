@@ -29,7 +29,7 @@ if not exist assets mkdir assets
 "%VPY%" -m PyInstaller --noconfirm --clean --log-level WARN Sidestick.spec || exit /b 1
 
 echo [4/4] Zipping...
-powershell -NoProfile -Command "Compress-Archive -Force -Path 'dist\Sidestick' -DestinationPath 'dist\Sidestick-windows.zip'" || exit /b 1
+powershell -NoProfile -Command "Compress-Archive -Force -Path 'dist\Sidestick\*' -DestinationPath 'dist\Sidestick-windows.zip'" || exit /b 1
 
 echo.
 echo Done:

@@ -2,6 +2,10 @@
 
 Use an Xbox controller as a mouse and keyboard on Windows. Browse, watch videos, control media and type from the couch, no desk required.
 
+### [⬇ Download Sidestick for Windows](https://github.com/a7med3othman/sidestick/releases/latest/download/Sidestick-windows.zip)
+
+Free · Windows 10/11 · No install or Python needed
+
 ![Main window](docs/main.png)
 
 - **Mouse:** analog cursor with an acceleration curve, precision mode, click and drag, scrolling in both directions
@@ -12,9 +16,9 @@ Use an Xbox controller as a mouse and keyboard on Windows. Browse, watch videos,
 
 ## Download and run (no Python needed)
 
-1. Download **`Sidestick-windows.zip`** from the [Releases](../../releases) page.
-2. Unzip it anywhere (e.g. `Documents\Sidestick`).
-3. Run **`Sidestick.exe`**.
+1. **[Download Sidestick-windows.zip](https://github.com/a7med3othman/sidestick/releases/latest/download/Sidestick-windows.zip)**. It downloads straight away.
+2. Right-click the downloaded file and choose **Extract All…**, then **Extract**.
+3. Open the extracted folder and double-click **`Sidestick.exe`**.
 
 > **"Windows protected your PC"?** The app isn't code-signed, so SmartScreen warns about it. Click **More info → Run anyway**. Some antivirus tools also flag unsigned apps that simulate keyboard/mouse input. If yours does, you can check the source here and [build it yourself](#building-the-exe).
 
