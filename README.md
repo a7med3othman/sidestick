@@ -116,7 +116,7 @@ Windows doesn't let normal apps send input to apps running as administrator (Tas
 ## Running from source
 
 ```bat
-git clone https://github.com/<you>/controller-companion.git
+git clone https://github.com/a7med3othman/controller-companion.git
 cd controller-companion
 run.bat
 ```
