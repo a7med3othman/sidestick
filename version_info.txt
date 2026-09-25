@@ -1,0 +1,19 @@
+# Windows version resource for ControllerCompanion.exe (shown in file Properties).
+VSVersionInfo(
+  ffi=FixedFileInfo(filevers=(2, 0, 0, 0), prodvers=(2, 0, 0, 0)),
+  kids=[
+    StringFileInfo([
+      StringTable("040904B0", [
+        StringStruct("CompanyName", "Controller Companion"),
+        StringStruct("FileDescription", "Controller Companion: Xbox controller as mouse and keyboard"),
+        StringStruct("FileVersion", "2.0.0"),
+        StringStruct("InternalName", "ControllerCompanion"),
+        StringStruct("OriginalFilename", "ControllerCompanion.exe"),
+        StringStruct("ProductName", "Controller Companion"),
+        StringStruct("ProductVersion", "2.0.0"),
+        StringStruct("LegalCopyright", "MIT License"),
+      ])
+    ]),
+    VarFileInfo([VarStruct("Translation", [1033, 1200])])
+  ]
+)
