@@ -20,7 +20,7 @@ from . import __version__
 from . import config as C
 from . import win32
 
-log = logging.getLogger("controller_companion")
+log = logging.getLogger("sidestick")
 
 
 class App:
@@ -201,7 +201,7 @@ def setup_logging():
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(prog="controller_companion",
+    parser = argparse.ArgumentParser(prog="sidestick",
                                      description="Use an Xbox controller as a mouse and keyboard.")
     parser.add_argument("--minimized", action="store_true", help="start hidden in the tray")
     parser.add_argument("--elevated-restart", action="store_true", help=argparse.SUPPRESS)
@@ -209,13 +209,13 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     setup_logging()
-    log.info("Controller Companion %s starting (admin=%s)", __version__, win32.is_admin())
+    log.info("Sidestick %s starting (admin=%s)", __version__, win32.is_admin())
     win32.set_dpi_aware()
     win32.set_app_id(f"{C.APP_ID}.{__version__}")
 
     instance = win32.SingleInstance(C.APP_ID)
     if not instance.acquire(wait=5.0 if args.elevated_restart else 0.0):
-        win32.message_box("Controller Companion is already running.\n\n"
+        win32.message_box("Sidestick is already running.\n\n"
                           "Look for its icon in the system tray.", C.APP_NAME)
         return 1
 
@@ -233,7 +233,7 @@ def main(argv=None):
         return app.run()
     except Exception:
         log.exception("Fatal error")
-        win32.message_box("Controller Companion hit an unexpected error and closed.\n\n"
+        win32.message_box("Sidestick hit an unexpected error and closed.\n\n"
                           f"Details are in:\n{os.path.join(C.config_dir(), 'log.txt')}",
                           C.APP_NAME)
         return 1

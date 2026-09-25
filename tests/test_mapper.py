@@ -1,8 +1,8 @@
 import pytest
 
-from controller_companion import config as C
-from controller_companion.config import Settings
-from controller_companion.mapper import Mapper, PadState
+from sidestick import config as C
+from sidestick.config import Settings
+from sidestick.mapper import Mapper, PadState
 
 
 class FakeOutput:

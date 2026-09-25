@@ -1,4 +1,4 @@
-# Controller Companion
+# Sidestick
 
 Use an Xbox controller as a mouse and keyboard on Windows. Browse, watch videos, control media and type from the couch, no desk required.
 
@@ -12,9 +12,9 @@ Use an Xbox controller as a mouse and keyboard on Windows. Browse, watch videos,
 
 ## Download and run (no Python needed)
 
-1. Download **`ControllerCompanion-windows.zip`** from the [Releases](../../releases) page.
-2. Unzip it anywhere (e.g. `Documents\ControllerCompanion`).
-3. Run **`ControllerCompanion.exe`**.
+1. Download **`Sidestick-windows.zip`** from the [Releases](../../releases) page.
+2. Unzip it anywhere (e.g. `Documents\Sidestick`).
+3. Run **`Sidestick.exe`**.
 
 > **"Windows protected your PC"?** The app isn't code-signed, so SmartScreen warns about it. Click **More info → Run anyway**. Some antivirus tools also flag unsigned apps that simulate keyboard/mouse input. If yours does, you can check the source here and [build it yourself](#building-the-exe).
 
@@ -82,11 +82,11 @@ The keyboard also has on-screen Shift (applies to the next key), Caps, Esc, Del 
 
 ### Pausing for games
 
-Most games read the controller directly, so Controller Companion would also move your mouse while you play. **Hold Back, then hold Start for 1 second** to pause (the controller rumbles and the tray icon greys out). Do the same to resume. You can also pause from the main window or the tray menu.
+Most games read the controller directly, so Sidestick would also move your mouse while you play. **Hold Back, then hold Start for 1 second** to pause (the controller rumbles and the tray icon greys out). Do the same to resume. You can also pause from the main window or the tray menu.
 
 ## Settings
 
-Open **Settings** from the main window or the tray icon. Changes apply instantly and are saved automatically to `%APPDATA%\ControllerCompanion\settings.json`.
+Open **Settings** from the main window or the tray icon. Changes apply instantly and are saved automatically to `%APPDATA%\Sidestick\settings.json`.
 
 ![Settings](docs/settings.png)
 
@@ -116,8 +116,8 @@ Windows doesn't let normal apps send input to apps running as administrator (Tas
 ## Running from source
 
 ```bat
-git clone https://github.com/a7med3othman/controller-companion.git
-cd controller-companion
+git clone https://github.com/a7med3othman/sidestick.git
+cd sidestick
 run.bat
 ```
 
@@ -127,7 +127,7 @@ To run it manually instead:
 
 ```bash
 python -m pip install -r requirements.txt
-python -m controller_companion
+python -m sidestick
 ```
 
 Options: `--minimized` starts hidden in the tray. `--version` prints the version.
@@ -140,8 +140,8 @@ build.bat
 
 This sets up `.venv-build`, runs the tests, and uses PyInstaller to produce:
 
-- `dist\ControllerCompanion\ControllerCompanion.exe`: the app folder
-- `dist\ControllerCompanion-windows.zip`: the same folder, zipped for sharing
+- `dist\Sidestick\Sidestick.exe`: the app folder
+- `dist\Sidestick-windows.zip`: the same folder, zipped for sharing
 
 Releases are automated: pushing a tag such as `v2.0.0` makes GitHub Actions build the zip and attach it to a new Release.
 
@@ -153,14 +153,14 @@ Releases are automated: pushing a tag such as `v2.0.0` makes GitHub Actions buil
 | Cursor moves while playing a game | Pause with **Back + Start** (hold 1 s). |
 | Nothing happens in Task Manager or an installer | Use **Settings → Restart as admin**. |
 | Cursor drifts on its own | Raise **Stick dead-zone** in Settings. |
-| "Controller Companion is already running" | It's in the system tray. Click the ^ arrow on the taskbar to find it. |
-| Something went wrong | Check the log at `%APPDATA%\ControllerCompanion\log.txt`. |
+| "Sidestick is already running" | It's in the system tray. Click the ^ arrow on the taskbar to find it. |
+| Something went wrong | Check the log at `%APPDATA%\Sidestick\log.txt`. |
 
 ## Project layout
 
 ```
-ControllerCompanion.pyw     Double-click launcher / PyInstaller entry point
-controller_companion/
+Sidestick.pyw               Double-click launcher / PyInstaller entry point
+sidestick/
   mapper.py                 All controller → keyboard/mouse logic (pure, unit-tested)
   layout.py                 On-screen keyboard layout and navigation
   engine.py                 Controller polling thread (pygame) that drives the mapper

@@ -28,7 +28,7 @@ class Tray:
 
         Item = pystray.MenuItem
         menu = pystray.Menu(
-            Item("Show Controller Companion", cmd("show"), default=True),
+            Item("Show Sidestick", cmd("show"), default=True),
             Item(lambda item: "Resume" if self.paused else "Pause", cmd("pause")),
             pystray.Menu.SEPARATOR,
             Item("Bindings overlay",   cmd("overlay")),

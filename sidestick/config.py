@@ -7,8 +7,8 @@ from dataclasses import asdict, dataclass, fields, replace
 
 log = logging.getLogger(__name__)
 
-APP_NAME = "Controller Companion"
-APP_ID   = "ControllerCompanion"
+APP_NAME = "Sidestick"
+APP_ID   = "Sidestick"
 
 # ═══════════════════════════════════════════════════════════════════════════
 #  TIMING / FEEL

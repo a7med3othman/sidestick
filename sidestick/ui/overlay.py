@@ -52,7 +52,7 @@ BINDINGS = (
 class Overlay(FloatingWindow):
 
     def __init__(self, root):
-        super().__init__(root, "Controller Companion: Bindings")
+        super().__init__(root, "Sidestick: Bindings")
         cv = tk.Canvas(self.win, bg=T.BG, highlightthickness=0, bd=0)
         cv.pack()
         self._draw(cv)

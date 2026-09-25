@@ -1,6 +1,6 @@
 @echo off
-rem Build the standalone app: dist\ControllerCompanion\ControllerCompanion.exe
-rem and dist\ControllerCompanion-windows.zip (what goes on GitHub Releases).
+rem Build the standalone app: dist\Sidestick\Sidestick.exe
+rem and dist\Sidestick-windows.zip (what goes on GitHub Releases).
 setlocal EnableExtensions
 cd /d "%~dp0"
 
@@ -25,13 +25,13 @@ echo [2/4] Running tests...
 
 echo [3/4] Building...
 if not exist assets mkdir assets
-"%VPY%" -m controller_companion.icon assets\icon.ico || exit /b 1
-"%VPY%" -m PyInstaller --noconfirm --clean --log-level WARN ControllerCompanion.spec || exit /b 1
+"%VPY%" -m sidestick.icon assets\icon.ico || exit /b 1
+"%VPY%" -m PyInstaller --noconfirm --clean --log-level WARN Sidestick.spec || exit /b 1
 
 echo [4/4] Zipping...
-powershell -NoProfile -Command "Compress-Archive -Force -Path 'dist\ControllerCompanion' -DestinationPath 'dist\ControllerCompanion-windows.zip'" || exit /b 1
+powershell -NoProfile -Command "Compress-Archive -Force -Path 'dist\Sidestick' -DestinationPath 'dist\Sidestick-windows.zip'" || exit /b 1
 
 echo.
 echo Done:
-echo   dist\ControllerCompanion\ControllerCompanion.exe
-echo   dist\ControllerCompanion-windows.zip
+echo   dist\Sidestick\Sidestick.exe
+echo   dist\Sidestick-windows.zip

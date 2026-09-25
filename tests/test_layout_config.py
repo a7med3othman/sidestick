@@ -1,7 +1,7 @@
 import json
 
-from controller_companion import config
-from controller_companion.layout import ROWS, KeyboardModel, key_text
+from sidestick import config
+from sidestick.layout import ROWS, KeyboardModel, key_text
 
 
 def test_rows_are_equal_width():

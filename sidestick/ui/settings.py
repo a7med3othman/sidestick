@@ -60,7 +60,7 @@ class SettingsWindow:
 
         self.win = tk.Toplevel(root)
         self.win.withdraw()
-        self.win.title("Settings: Controller Companion")
+        self.win.title("Settings: Sidestick")
         self.win.configure(bg=T.BG)
         self.win.resizable(False, False)
         self.win.protocol("WM_DELETE_WINDOW", self.hide)

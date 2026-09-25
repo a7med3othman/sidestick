@@ -7,7 +7,7 @@
 block_cipher = None
 
 a = Analysis(
-    ["ControllerCompanion.pyw"],
+    ["Sidestick.pyw"],
     pathex=["."],
     hiddenimports=[
         "pynput.keyboard._win32",
@@ -24,11 +24,11 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name="ControllerCompanion",
+    name="Sidestick",
     console=False,
     icon="assets/icon.ico",
     version="version_info.txt",
     upx=False,
 )
 
-coll = COLLECT(exe, a.binaries, a.datas, name="ControllerCompanion", upx=False)
+coll = COLLECT(exe, a.binaries, a.datas, name="Sidestick", upx=False)

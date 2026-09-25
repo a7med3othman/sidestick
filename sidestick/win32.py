@@ -144,7 +144,7 @@ def launch_command(extra_args=()):
     pythonw = os.path.join(os.path.dirname(exe), "pythonw.exe")
     if os.path.exists(pythonw):
         exe = pythonw
-    return exe, [os.path.join(root, "ControllerCompanion.pyw"), *extra_args], root
+    return exe, [os.path.join(root, "Sidestick.pyw"), *extra_args], root
 
 
 def relaunch_as_admin(extra_args=()):

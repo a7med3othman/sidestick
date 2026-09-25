@@ -23,11 +23,11 @@ jobs:
         run: build.bat
       - uses: actions/upload-artifact@v4
         with:
-          name: ControllerCompanion-windows
-          path: dist/ControllerCompanion-windows.zip
+          name: Sidestick-windows
+          path: dist/Sidestick-windows.zip
       - name: Publish release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/ControllerCompanion-windows.zip
+          files: dist/Sidestick-windows.zip
           generate_release_notes: true

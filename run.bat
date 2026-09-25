@@ -1,5 +1,5 @@
 @echo off
-rem Run Controller Companion from source. First run creates a private
+rem Run Sidestick from source. First run creates a private
 rem virtual environment (.venv) and installs the dependencies into it.
 setlocal EnableExtensions
 cd /d "%~dp0"
@@ -11,7 +11,7 @@ py -3 --version >nul 2>&1 && set "PY=py -3"
 if not defined PY python --version >nul 2>&1 && set "PY=python"
 if not defined PY goto :nopython
 
-echo Setting up Controller Companion (first run only)...
+echo Setting up Sidestick (first run only)...
 %PY% -m venv .venv || goto :fail
 
 :deps
@@ -22,13 +22,13 @@ if errorlevel 1 (
     ".venv\Scripts\python.exe" -m pip install --disable-pip-version-check -q -r requirements.txt || goto :fail
     copy /y requirements.txt ".venv\requirements.installed" >nul
 )
-start "" ".venv\Scripts\pythonw.exe" ControllerCompanion.pyw %*
+start "" ".venv\Scripts\pythonw.exe" Sidestick.pyw %*
 exit /b 0
 
 :nopython
 echo Python 3.9 or newer was not found.
 echo.
-echo  - Easiest: download ControllerCompanion-windows.zip from the GitHub
+echo  - Easiest: download Sidestick-windows.zip from the GitHub
 echo    Releases page. It needs no Python.
 echo  - Or install Python from https://www.python.org/downloads/
 echo    (tick "Add python.exe to PATH") and run this file again.

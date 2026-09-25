@@ -5,6 +5,6 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from controller_companion.app import main
+from sidestick.app import main
 
 raise SystemExit(main())
